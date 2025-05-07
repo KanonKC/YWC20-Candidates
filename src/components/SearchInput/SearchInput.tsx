@@ -28,6 +28,7 @@ const SearchInput = ({
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
+        placeholder="ใส่ชื่อจริง นามสกุล"
       />
       <ThemedButton onClick={onSearch} className="search-button">
         <span className={cn({

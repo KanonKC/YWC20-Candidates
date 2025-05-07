@@ -1,0 +1,35 @@
+.failed-dialog {
+  padding: 2rem;
+  text-align: center;
+}
+
+.content-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 2rem;
+  color: #e74c3c;
+  margin-bottom: 2rem;
+}
+
+.message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.message p {
+  margin-bottom: 1rem;
+}
+
+.quote {
+  font-style: italic;
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-left: 4px solid #e74c3c;
+  background-color: #f9f9f9;
+} 

@@ -1,4 +1,4 @@
-import CandidatePassedDialog from '@/components/CandidatePassedDialog/CandidatePassedDialog';
+import CandidatePassedDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import NavigationBarLayout from '@/layouts/NavigationBarLayout/NavigationBarLayout';
 import { getCandidateList } from '@/service/candidate.service';
@@ -6,6 +6,7 @@ import type { Candiate } from '@/service/models/candidate';
 import { useEffect, useState } from 'react';
 import './Home.css';
 import confetti from 'canvas-confetti';
+import CandidateResultDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
 
 const Home = () => {
   const [candidateList, setCandidateList] = useState<Candiate[]>([]);
@@ -24,9 +25,9 @@ const Home = () => {
         (candidate) =>
           candidate.firstName === firstname && candidate.lastName === lastname
       );
+      setIsOpenDialog(true);
+      setTargetCandidate(candidate || null);
       if (candidate) {
-        setIsOpenDialog(true);
-        setTargetCandidate(candidate);
         confetti({
           particleCount: 100,
           spread: 70,
@@ -34,8 +35,6 @@ const Home = () => {
             y: 0.7,
           },
         });
-      } else {
-        setTargetCandidate(null);
       }
     }, 1000);
   };
@@ -52,13 +51,12 @@ const Home = () => {
   }, []);
   return (
     <NavigationBarLayout>
-      {targetCandidate && (
-        <CandidatePassedDialog
-          candidate={targetCandidate}
-          isOpenDialog={isOpenDialog}
-          setIsOpenDialog={setIsOpenDialog}
-        />
-      )}
+      <CandidateResultDialog
+        candidate={targetCandidate}
+        isOpenDialog={isOpenDialog}
+        setIsOpenDialog={setIsOpenDialog}
+      />
+
       <div className="page-container">
         <div className="search-input-label">ใส่ชื่อของคุณ</div>
         <div className="w-[60%]">
