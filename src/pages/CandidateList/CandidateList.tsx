@@ -25,8 +25,9 @@ const CandidateList = () => {
         ...data.marketing,
         ...data.programming,
       ]);
+      console.log('candidateList', candidateList);
     });
-  }, []);
+  }, [candidateList]);
   return (
     <NavigationBarLayout>
       <div className="page-container">
