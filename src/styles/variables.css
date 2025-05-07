@@ -1,0 +1,7 @@
+:root {
+  --gradient-primary: linear-gradient(
+    to right,
+    #ff9900 0%,
+    #ff0000 100%
+  );
+} 

@@ -1,0 +1,21 @@
+/* Make gradient button color */
+.themed-button {
+  background-image: var(--gradient-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: fit-content;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  /* transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+  /* Transition width change */
+  transition: all 0.3s;
+}
+
+.themed-button:hover {
+    transform: translateX(10px);
+}
+
+

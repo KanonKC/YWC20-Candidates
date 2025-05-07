@@ -1,9 +1,16 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Router from './Router';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 function App() {
   return (
     <>
-      <div>YWC 20 Candidates</div>
+      <BrowserRouter>
+        <ThemeProvider defaultTheme="dark">
+          <Router />
+        </ThemeProvider>
+      </BrowserRouter>
     </>
   );
 }

@@ -1,0 +1,12 @@
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.search-input-label {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}

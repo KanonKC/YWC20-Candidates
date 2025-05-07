@@ -74,6 +74,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --gradient-primary: linear-gradient(
+    to right,
+    #ff9900 0%,
+    #ff0000 100%
+  );
 }
 
 .dark {

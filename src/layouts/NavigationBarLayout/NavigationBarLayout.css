@@ -1,0 +1,12 @@
+.navigation-bar-container {
+    display: flex;
+    gap: 64px;
+    padding: 16px;
+    position: absolute;
+
+    .navigation-bar-item {
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
