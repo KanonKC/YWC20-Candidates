@@ -16,6 +16,7 @@ const Home = () => {
   const [targetCandidate, setTargetCandidate] = useState<Candiate | null>(null);
 
   const handleSearch = () => {
+    if (!searchInput) return;
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
