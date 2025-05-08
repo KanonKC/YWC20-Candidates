@@ -19,7 +19,7 @@ const CandidateResultDialog = ({
         <div className="content-conatiner">
           {candidate ? (
             <>
-              <div className="header">ขอแสดงความยินดี</div>
+              <div className="success-header">ขอแสดงความยินดี</div>
               <div className="name">
                 คุณ{' '}
                 <span className="candidate-name">
@@ -34,18 +34,22 @@ const CandidateResultDialog = ({
               </Badge>
             </>
           ) : (
-            <div className="message">
-              <p>
+            <>
+              <div className="failed-header">ขอแสดงความเสียใจ</div>
+              <div className="sub-header">
+                ไม่มีรายชื่อของคุณอยู่ในรายชื่อที่ผ่านการคัดเลือก
+              </div>
+              <div className="sub-header">
                 การไม่ผ่านการคัดเลือกในครั้งนี้
                 ไม่ได้หมายความว่าคุณไม่มีความสามารถ
-              </p>
-              <p>มันเป็นเพียงแค่จุดเริ่มต้นของการเดินทางที่ยิ่งใหญ่กว่า</p>
-              <p>ใช้ประสบการณ์นี้เป็นแรงผลักดันในการพัฒนาตัวเอง</p>
-              <p>เชื่อมั่นในตัวเอง และก้าวต่อไปอย่างมั่นคง</p>
-              <p className="quote">
-                "ความล้มเหลวไม่ใช่จุดจบ แต่เป็นจุดเริ่มต้นของเรื่องราวใหม่"
-              </p>
-            </div>
+                มันเป็นเพียงแค่จุดเริ่มต้นของการเดินทางที่ยิ่งใหญ่กว่า
+                ใช้ประสบการณ์นี้เป็นแรงผลักดันในการพัฒนาตัวเอง
+              </div>
+
+              <div className="sub-header">
+                เชื่อมั่นในตัวเอง และก้าวต่อไปอย่างมั่นคง
+              </div>
+            </>
           )}
         </div>
       </DialogContent>

@@ -36,6 +36,7 @@ const SearchInput = ({
         })}>ดูผลการสมัคร</span>
         {isLoading && <Loader2 size={48} className="animate-spin loader-icon" />}
       </ThemedButton>
+      
     </div>
   );
 };

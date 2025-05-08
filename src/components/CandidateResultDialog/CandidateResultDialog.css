@@ -7,11 +7,21 @@
     width: 100%;
     font-size: 24px;
     
-    .header {
+    .success-header {
         font-size: 36px;
         font-weight: 600;
         /* Gradient Text */
         background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .failed-header {
+        font-size: 36px;
+        font-weight: 600;
+        /* Gradient Text */
+        background: linear-gradient(to right, #ffffff, rgb(85, 85, 85));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -27,7 +37,7 @@
 
     .sub-header {
         font-size: 20px;
-        margin: 10px 0 8px 0;
+        text-align: center;
     }
 
     .major-text {
