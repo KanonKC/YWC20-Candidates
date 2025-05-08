@@ -15,7 +15,13 @@
 }
 
 .themed-button:hover {
-    transform: translateX(10px);
+    transform: translateY(-5px);
+}
+
+@media (min-width: 1024px) {
+    .themed-button:hover {
+        transform: translateX(10px);
+    }
 }
 
 

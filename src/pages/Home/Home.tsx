@@ -1,12 +1,11 @@
-import CandidatePassedDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
+import CandidateResultDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import NavigationBarLayout from '@/layouts/NavigationBarLayout/NavigationBarLayout';
 import { getCandidateList } from '@/service/candidate.service';
 import type { Candiate } from '@/service/models/candidate';
+import confetti from 'canvas-confetti';
 import { useEffect, useState } from 'react';
 import './Home.css';
-import confetti from 'canvas-confetti';
-import CandidateResultDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
 
 const Home = () => {
   const [candidateList, setCandidateList] = useState<Candiate[]>([]);
@@ -59,7 +58,7 @@ const Home = () => {
 
       <div className="page-container">
         <div className="search-input-label">ใส่ชื่อของคุณ</div>
-        <div className="w-[60%]">
+        <div className="search-input-container">
           <SearchInput
             isLoading={isLoading}
             value={searchInput}

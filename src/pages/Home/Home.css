@@ -10,3 +10,15 @@
     font-weight: 600;
     margin-bottom: 24px;
 }
+
+.search-input-container {
+    width: 90%;
+}
+
+@media (min-width: 1024px) {
+    .search-input-container {
+        width: 60%;
+    }
+}
+
+
