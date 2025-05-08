@@ -10,7 +10,7 @@ import './Home.css';
 const Home = () => {
   const [candidateList, setCandidateList] = useState<Candiate[]>([]);
   const [searchInput, setSearchInput] = useState<string>('');
-  const [isOpenDialog, setIsOpenDialog] = useState<boolean>(true);
+  const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [targetCandidate, setTargetCandidate] = useState<Candiate | null>(null);
