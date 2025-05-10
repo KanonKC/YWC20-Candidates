@@ -39,7 +39,7 @@ const CandidateResultDialog = ({
                 </Badge>
               </div>
               <div className="sub-header">
-                หมายเลขสัมภาษณ์:{' '}
+                หมายเลขสัมภาษณ์ {' '}
                 <span className="bg-neutral-800 rounded-md px-[4px] font-bold font-mono border">
                   {candidate.interviewRefNo}
                 </span>
@@ -51,9 +51,9 @@ const CandidateResultDialog = ({
               <div className="sub-header">
                 ไม่มีรายชื่อของคุณอยู่ในรายชื่อที่ผ่านการคัดเลือก
               </div>
-              <div className="sub-header">
+              <div className="sub-header mt-[8px]">
                 การไม่ผ่านการคัดเลือกในครั้งนี้
-                ไม่ได้หมายความว่าคุณไม่มีความสามารถ
+                ไม่ได้หมายความว่าคุณไม่มีความสามารถ 
                 มันเป็นเพียงแค่จุดเริ่มต้นของการเดินทางที่ยิ่งใหญ่กว่า
                 ใช้ประสบการณ์นี้เป็นแรงผลักดันในการพัฒนาตัวเอง
               </div>
