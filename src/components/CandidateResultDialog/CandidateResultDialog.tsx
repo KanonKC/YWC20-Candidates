@@ -30,7 +30,7 @@ const CandidateResultDialog = ({
                   {candidate.firstName} {candidate.lastName}
                 </span>
               </div>
-              <div className="sub-header">ได้ผ่านการคัดเลือก ในตำแหน่ง</div>
+              <div className="sub-header mt-[8px]">ได้ผ่านการคัดเลือก ในตำแหน่ง</div>
               <div className="badge-container">
                 <Badge className={CandidateMajor[candidate.major].color}>
                   <span className="major-text">
@@ -48,10 +48,10 @@ const CandidateResultDialog = ({
           ) : (
             <>
               <div className="failed-header">ขอแสดงความเสียใจ</div>
-              <div className="sub-header">
+              <div className="sub-header mt-[8px]">
                 ไม่มีรายชื่อของคุณอยู่ในรายชื่อที่ผ่านการคัดเลือก
               </div>
-              <div className="sub-header mt-[8px]">
+              <div className="sub-header mt-[8px] opacity-85">
                 การไม่ผ่านการคัดเลือกในครั้งนี้
                 ไม่ได้หมายความว่าคุณไม่มีความสามารถ 
                 มันเป็นเพียงแค่จุดเริ่มต้นของการเดินทางที่ยิ่งใหญ่กว่า

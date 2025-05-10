@@ -25,6 +25,8 @@
   font-weight: 600;
  /* underline */
  text-decoration: underline;
+ /* underline offset */
+ text-underline-offset: 4px;
   /* Gradient Text */
   /* background: linear-gradient(to right, #ffffff, rgb(85, 85, 85));
   -webkit-background-clip: text;
