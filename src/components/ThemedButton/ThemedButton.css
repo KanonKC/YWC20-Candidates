@@ -1,11 +1,25 @@
 /* Make gradient button color */
 .themed-button {
-  background-image: var(--gradient-primary);
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
   min-width: fit-content;
   white-space: nowrap;
+  color: white;
 }
 
+.primary {
+  background-image: var(--gradient-primary);
+}
 
+.primary:hover {
+  background-image: var(--gradient-primary-light);
+}
+
+.ghost {
+  background-image: none;
+}
+
+.ghost:hover {
+  background-color: #222;
+}
