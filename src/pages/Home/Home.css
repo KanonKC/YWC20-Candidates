@@ -11,13 +11,31 @@
     margin-bottom: 24px;
 }
 
-.search-input-container {
-    width: 90%;
+.search-input-container-sm {
+    width: 100%;
+}
+
+.search-input-container-lg {
+    display: none;
+}
+
+.search-input-card {
+    padding: 16px;
+    border-radius: 0;
 }
 
 @media (min-width: 1024px) {
-    .search-input-container {
+    .search-input-container-sm {
+        display: none;
+    }
+
+    .search-input-container-lg {
+        display: block;
         width: 60%;
+    }
+
+    .search-input-card {
+        display: none;
     }
 }
 

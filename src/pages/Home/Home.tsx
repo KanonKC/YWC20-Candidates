@@ -6,6 +6,7 @@ import type { Candiate } from '@/service/models/candidate';
 import confetti from 'canvas-confetti';
 import { useEffect, useState } from 'react';
 import './Home.css';
+import { Card } from '@/components/ui/card';
 
 const Home = () => {
   const [candidateList, setCandidateList] = useState<Candiate[]>([]);
@@ -60,7 +61,17 @@ const Home = () => {
 
       <div className="page-container">
         <div className="search-input-label">ใส่ชื่อของคุณ</div>
-        <div className="search-input-container">
+        <div className="search-input-container-sm">
+          <Card className="search-input-card">
+            <SearchInput
+              isLoading={isLoading}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onSearch={handleSearch}
+            />
+          </Card>
+        </div>
+        <div className="search-input-container-lg">
           <SearchInput
             isLoading={isLoading}
             value={searchInput}
