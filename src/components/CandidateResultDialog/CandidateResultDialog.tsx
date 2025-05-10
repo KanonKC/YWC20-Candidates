@@ -27,11 +27,19 @@ const CandidateResultDialog = ({
                 </span>
               </div>
               <div className="sub-header">ได้ผ่านการคัดเลือก ในตำแหน่ง</div>
-              <Badge className={CandidateMajor[candidate.major].color}>
-                <span className="major-text">
-                  {CandidateMajor[candidate.major].title}
+              <div className="badge-container">
+                <Badge className={CandidateMajor[candidate.major].color}>
+                  <span className="major-text">
+                    {CandidateMajor[candidate.major].title}
+                  </span>
+                </Badge>
+              </div>
+              <div className="sub-header">
+                หมายเลขสัมภาษณ์:{' '}
+                <span className="bg-neutral-800 rounded-md px-[4px] font-bold font-mono border">
+                  {candidate.interviewRefNo}
                 </span>
-              </Badge>
+              </div>
             </>
           ) : (
             <>

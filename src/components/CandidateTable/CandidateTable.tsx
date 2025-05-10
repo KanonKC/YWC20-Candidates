@@ -1,48 +1,45 @@
+import { Badge } from '@/components/ui/badge';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table';
 import { CandidateMajor } from '@/constants/CandidateMajor';
 import type { Candiate } from '@/service/models/candidate';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 const CandidateTable = ({ data = [] }: { data?: Candiate[] }) => {
   return (
-    <Card className="p-4">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>First Name</TableHead>
-            <TableHead>Last Name</TableHead>
-            <TableHead>Interview Ref No</TableHead>
-            <TableHead>Major</TableHead>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>ชื่อ</TableHead>
+          <TableHead>นามสกุล</TableHead>
+          <TableHead className="text-center">หมายเลขผู้สัมภาษณ์</TableHead>
+          <TableHead className="text-center">สาขา</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {data.map((candidate) => (
+          <TableRow key={candidate.interviewRefNo}>
+            <TableCell>{candidate.firstName}</TableCell>
+            <TableCell>{candidate.lastName}</TableCell>
+            <TableCell className="text-center">
+              <span className="bg-neutral-800 rounded-md px-[4px] font-bold font-mono border">
+                {candidate.interviewRefNo}
+              </span>
+            </TableCell>
+            <TableCell className="text-center">
+              <Badge className={CandidateMajor[candidate.major].color}>
+                {CandidateMajor[candidate.major].title}
+              </Badge>
+            </TableCell>
           </TableRow>
-        </TableHeader>
-        <TableBody>
-          {data.map((candidate) => (
-            <TableRow key={candidate.interviewRefNo}>
-              <TableCell>{candidate.firstName}</TableCell>
-              <TableCell>{candidate.lastName}</TableCell>
-              <TableCell>
-                <span className='bg-neutral-300 rounded-md px-1 font-bold font-mono'>
-                  {candidate.interviewRefNo}
-                </span>
-              </TableCell>
-              <TableCell>
-                <Badge className={CandidateMajor[candidate.major].color}>
-                  {CandidateMajor[candidate.major].title}
-                </Badge>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Card>
+        ))}
+      </TableBody>
+    </Table>
   );
 };
 
