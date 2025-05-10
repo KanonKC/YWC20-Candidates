@@ -96,7 +96,7 @@ const CandidateList = () => {
 
   return (
     <NavigationBarLayout>
-      <div className="pt-[64px] mx-[32px]">
+      <div className="mx-[32px]">
         <div className="flex gap-[8px]">
           <Input
             value={searchValue}

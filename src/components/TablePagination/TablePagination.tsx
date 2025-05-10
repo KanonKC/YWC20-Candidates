@@ -1,13 +1,11 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ThemedButton from '../ThemedButton/ThemedButton';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
-} from '../ui/pagination';
 import { Button } from '../ui/button';
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem
+} from '../ui/pagination';
 
 const TablePagination = ({
   currentPage = 1,

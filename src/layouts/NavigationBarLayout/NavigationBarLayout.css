@@ -3,10 +3,15 @@
     gap: 64px;
     padding: 16px;
     position: absolute;
+    align-items: center;
 
     .navigation-bar-item {
         font-size: 20px;
         font-weight: 500;
         cursor: pointer;
     }
+}
+
+.navgation-bar-children {
+    padding-top: 100px;
 }

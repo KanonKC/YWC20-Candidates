@@ -50,7 +50,7 @@ const Home = () => {
     });
   }, []);
   return (
-    <NavigationBarLayout>
+    <NavigationBarLayout noAutoPaddingTop>
       <CandidateResultDialog
         candidate={targetCandidate}
         isOpenDialog={isOpenDialog}
