@@ -23,8 +23,8 @@ const NavigationBarLayout = ({
   return (
     <div>
       <div className="navigation-bar-container">
-        <div>
-          <img width={150} src={ywc20Logo} alt="logo" />
+        <div className='navigation-bar-logo'>
+          <img src={ywc20Logo} alt="logo" />
         </div>
         <div
           className={cn('navigation-bar-item', {
