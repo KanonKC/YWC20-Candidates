@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NavigationBarLayout.css';
-import ywc20Logo from '../../../public/ywc20-logo.webp';
+import ywc20Logo from '@/assets/ywc20-logo.webp';
 import { cn } from '@/lib/utils';
 
 const NavigationBarLayout = ({
