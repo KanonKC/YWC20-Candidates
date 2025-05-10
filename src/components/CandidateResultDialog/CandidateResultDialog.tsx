@@ -1,18 +1,22 @@
+import { CandidateMajor } from '@/constants/CandidateMajor';
 import type { Candiate } from '@/service/models/candidate';
+import { Loader2 } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { Dialog, DialogContent } from '../ui/dialog';
 import './CandidateResultDialog.css';
-import { CandidateMajor } from '@/constants/CandidateMajor';
-
 const CandidateResultDialog = ({
   isOpenDialog,
   setIsOpenDialog,
   candidate,
+  motivatedText="",
 }: {
   isOpenDialog: boolean;
   setIsOpenDialog: (isOpen: boolean) => void;
   candidate: Candiate | null;
+  motivatedText?: string;
 }) => {
+  
+
   return (
     <Dialog open={isOpenDialog} onOpenChange={setIsOpenDialog}>
       <DialogContent className="max-w-[800px]">
@@ -57,6 +61,16 @@ const CandidateResultDialog = ({
               <div className="sub-header">
                 เชื่อมั่นในตัวเอง และก้าวต่อไปอย่างมั่นคง
               </div>
+
+              {motivatedText ? (
+                <div className="sub-header border quote-text">
+                  " {motivatedText} "
+                </div>
+              ) : (
+                <div className='sub-header border quote-text'>
+                    <Loader2 className='animate-spin' />
+                </div>
+              )}
             </>
           )}
         </div>

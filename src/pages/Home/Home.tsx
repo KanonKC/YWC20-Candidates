@@ -1,12 +1,13 @@
 import CandidateResultDialog from '@/components/CandidateResultDialog/CandidateResultDialog';
 import SearchInput from '@/components/SearchInput/SearchInput';
+import { Card } from '@/components/ui/card';
 import NavigationBarLayout from '@/layouts/NavigationBarLayout/NavigationBarLayout';
 import { getCandidateList } from '@/service/candidate.service';
 import type { Candiate } from '@/service/models/candidate';
 import confetti from 'canvas-confetti';
 import { useEffect, useState } from 'react';
 import './Home.css';
-import { Card } from '@/components/ui/card';
+import { getMotivatedText } from '@/service/gemini.service';
 
 const Home = () => {
   const [candidateList, setCandidateList] = useState<Candiate[]>([]);
@@ -15,12 +16,15 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [targetCandidate, setTargetCandidate] = useState<Candiate | null>(null);
+  const [motivatedText, setMotivatedText] = useState<string>('');
+
 
   const handleSearch = () => {
     if (!searchInput) return;
     setIsLoading(true);
+    setMotivatedText('');
     setTimeout(() => {
-      setIsLoading(false);
+      
       const [firstname, lastname] = searchInput.toLowerCase().split(' ');
       const candidate = candidateList.find(
         (candidate) =>
@@ -37,7 +41,13 @@ const Home = () => {
             y: 0.7,
           },
         });
+      } else {
+        getMotivatedText().then((text) => {
+          setMotivatedText(text);
+        });
       }
+
+      setIsLoading(false);
     }, 1000);
   };
 
@@ -54,6 +64,7 @@ const Home = () => {
   return (
     <NavigationBarLayout noAutoPaddingTop>
       <CandidateResultDialog
+        motivatedText={motivatedText}
         candidate={targetCandidate}
         isOpenDialog={isOpenDialog}
         setIsOpenDialog={setIsOpenDialog}

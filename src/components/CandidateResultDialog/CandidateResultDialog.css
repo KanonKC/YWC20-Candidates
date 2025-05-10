@@ -50,6 +50,14 @@
   margin: 8px 0;
 }
 
+.quote-text {
+    margin-top: 16px;
+    font-style: italic;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #141414;
+}
+
 @media (min-width: 1024px) {
   .success-header {
     font-size: 36px;
