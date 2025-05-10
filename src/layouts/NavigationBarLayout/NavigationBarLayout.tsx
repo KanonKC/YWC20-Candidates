@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NavigationBarLayout.css';
 import ywc20Logo from '../../../public/ywc20-logo.webp';
+import { cn } from '@/lib/utils';
 
 const NavigationBarLayout = ({
   children,
@@ -11,17 +12,32 @@ const NavigationBarLayout = ({
   noAutoPaddingTop?: boolean;
 }) => {
   const navigate = useNavigate();
+
+  const isCandidateListPage = useMemo(() => {
+    return window.location.pathname === '/candidate-list';
+  }, []);
+
+  useEffect(() => {
+  }, [isCandidateListPage]);
+
   return (
     <div>
       <div className="navigation-bar-container">
         <div>
           <img width={150} src={ywc20Logo} alt="logo" />
         </div>
-        <div className="navigation-bar-item" onClick={() => navigate('/')}>
+        <div
+          className={cn('navigation-bar-item', {
+            'themed-color': !isCandidateListPage,
+          })}
+          onClick={() => navigate('/')}
+        >
           หน้าแรก
         </div>
         <div
-          className="navigation-bar-item"
+          className={cn('navigation-bar-item', {
+            'themed-color': isCandidateListPage,
+          })}
           onClick={() => navigate('/candidate-list')}
         >
           ดูรายชื่อผู้สมัคร

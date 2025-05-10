@@ -16,7 +16,6 @@ const SearchInput = ({
   onSearch?: () => void;
 }) => {
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log('e.key', e.key);
     if (e.key === 'Enter') {
       onSearch?.();
     }

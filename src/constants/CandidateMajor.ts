@@ -9,10 +9,10 @@ export const CandidateMajor = {
     },
     'web_programming': {
         title: 'Web Development',
-        color: 'bg-green-500',
+        color: 'bg-green-600',
     },
     'web_marketing': {
         title: 'Web Marketing',
-        color: 'bg-yellow-500',
+        color: 'bg-yellow-700',
     },
 }

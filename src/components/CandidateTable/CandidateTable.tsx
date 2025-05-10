@@ -15,10 +15,10 @@ const CandidateTable = ({ data = [] }: { data?: Candiate[] }) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>First Name</TableHead>
-          <TableHead>Last Name</TableHead>
-          <TableHead>Interview Ref No</TableHead>
-          <TableHead>Major</TableHead>
+          <TableHead>ชื่อ</TableHead>
+          <TableHead>นามสกุล</TableHead>
+          <TableHead className="text-center">หมายเลขผู้สัมภาษณ์</TableHead>
+          <TableHead className="text-center">สาขา</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -26,12 +26,12 @@ const CandidateTable = ({ data = [] }: { data?: Candiate[] }) => {
           <TableRow key={candidate.interviewRefNo}>
             <TableCell>{candidate.firstName}</TableCell>
             <TableCell>{candidate.lastName}</TableCell>
-            <TableCell>
-              <span className="bg-neutral-800 rounded-md px-[4px] font-bold font-mono">
+            <TableCell className="text-center">
+              <span className="bg-neutral-800 rounded-md px-[4px] font-bold font-mono border">
                 {candidate.interviewRefNo}
               </span>
             </TableCell>
-            <TableCell>
+            <TableCell className="text-center">
               <Badge className={CandidateMajor[candidate.major].color}>
                 {CandidateMajor[candidate.major].title}
               </Badge>

@@ -20,10 +20,11 @@ const Home = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      const [firstname, lastname] = searchInput.split(' ');
+      const [firstname, lastname] = searchInput.toLowerCase().split(' ');
       const candidate = candidateList.find(
         (candidate) =>
-          candidate.firstName === firstname && candidate.lastName === lastname
+          candidate.firstName.toLowerCase() === firstname &&
+          candidate.lastName.toLowerCase() === lastname
       );
       setIsOpenDialog(true);
       setTargetCandidate(candidate || null);

@@ -1,7 +1,5 @@
 import CandidateTable from '@/components/CandidateTable/CandidateTable';
-import MajorDropdown from '@/components/MajorDropdown/MajorDropdown';
 import TablePagination from '@/components/TablePagination/TablePagination';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import NavigationBarLayout from '@/layouts/NavigationBarLayout/NavigationBarLayout';
@@ -48,21 +46,21 @@ const CandidateList = () => {
   }, [filteredCandidateList, currentPage, pageSize]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('handleInputChange', e.target.value);
-    console.log('set param from 52')
     setParams({ search: e.target.value });
   };
 
   const handlePageChange = (page: number) => {
-    console.log('set param from 57')
-    setParams({ page: page.toString(), size: pageSize.toString(), search: searchValue });
+    setParams({
+      page: page.toString(),
+      size: pageSize.toString(),
+      search: searchValue,
+    });
   };
 
   useEffect(() => {
     const search = params.get('search');
     const page = params.get('page');
     const size = params.get('size');
-    console.log('setSearchValue', search);
     setSearchValue(search || '');
     setCurrentPage(page ? parseInt(page) : 1);
     setPageSize(size ? parseInt(size) : 15);
@@ -89,8 +87,11 @@ const CandidateList = () => {
   useEffect(() => {
     const page = params.get('page');
     if (!page) {
-      console.log('set param from 92');
-      setParams({ page: '1', size: pageSize.toString(), search: params.get('search') || '' });
+      setParams({
+        page: '1',
+        size: pageSize.toString(),
+        search: params.get('search') || '',
+      });
     }
   }, [pageSize]);
 
@@ -101,13 +102,8 @@ const CandidateList = () => {
           <Input
             value={searchValue}
             onChange={handleInputChange}
-            placeholder="Search"
+            placeholder="ค้นหา ชื่อ, นามสกุล, หมายเลขผู้สัมภาษณ์"
           />
-          <MajorDropdown>
-            <Button variant="outline" className="cursor-pointer">
-              Select
-            </Button>
-          </MajorDropdown>
         </div>
         <div className="mt-[8px]">
           <Card className="p-[16px]">
