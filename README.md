@@ -1,2 +1,2 @@
 # YWC 20 Candidate Result
-เว็บจำลองแสดงผลผู้ผ่านเข้ารอบสัมภาษณ์ สำหรับค่าย Young Webmaster Camp 20
+เว็บจำลองแสดงผลผู้ผ่านเข้ารอบสัมภาษณ์ สำหรับค่าย [Young Webmaster Camp 20](https://ywc20.ywc.in.th/)
