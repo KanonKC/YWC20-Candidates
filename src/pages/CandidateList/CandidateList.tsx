@@ -8,6 +8,7 @@ import type { Candiate } from '@/service/models/candidate';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './CandidateList.css';
+import { Loader2 } from 'lucide-react';
 
 const CandidateList = () => {
   const [params, setParams] = useSearchParams();
@@ -16,6 +17,7 @@ const CandidateList = () => {
   const [totalPages, setTotalPages] = useState<number>(-1);
   const [currentPage, setCurrentPage] = useState<number>(-1);
   const [pageSize, setPageSize] = useState<number>(15);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const filteredCandidateList = useMemo(() => {
     const filteredList = candidateList.filter(
@@ -67,6 +69,7 @@ const CandidateList = () => {
   }, [params]);
 
   useEffect(() => {
+    setIsLoading(true);
     getCandidateList().then((data) => {
       const totalCandidateList = [
         ...data.content,
@@ -76,6 +79,7 @@ const CandidateList = () => {
       ];
 
       setCandidateList(totalCandidateList);
+      setIsLoading(false);
     });
   }, []);
 
@@ -107,12 +111,20 @@ const CandidateList = () => {
         </div>
         <div className="mt-[8px]">
           <Card className="p-[16px]">
-            <CandidateTable data={displayedList} />
-            <TablePagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
+            {isLoading ? (
+              <div className="flex justify-center items-center h-full">
+                <Loader2 className="animate-spin" />
+              </div>
+            ) : (
+              <>
+                <CandidateTable data={displayedList} />
+                <TablePagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
+            )}
           </Card>
         </div>
       </div>

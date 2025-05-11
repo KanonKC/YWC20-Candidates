@@ -12,10 +12,8 @@ import type { Candiate } from '@/service/models/candidate';
 
 const CandidateTable = ({
   data = [],
-  isLoading = false,
 }: {
   data?: Candiate[];
-  isLoading?: boolean;
 }) => {
   return (
     <Table>
