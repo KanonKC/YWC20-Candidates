@@ -52,6 +52,7 @@ const Home = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getCandidateList().then((data) => {
       setCandidateList([
         ...data.content,
@@ -59,6 +60,7 @@ const Home = () => {
         ...data.marketing,
         ...data.programming,
       ]);
+      setIsLoading(false);
     });
   }, []);
   return (
