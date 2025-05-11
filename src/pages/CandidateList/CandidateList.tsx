@@ -8,7 +8,8 @@ import type { Candiate } from '@/service/models/candidate';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './CandidateList.css';
-import { Loader2 } from 'lucide-react';
+import { Loader2, RefreshCw } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const CandidateList = () => {
   const [params, setParams] = useSearchParams();
@@ -18,6 +19,7 @@ const CandidateList = () => {
   const [currentPage, setCurrentPage] = useState<number>(-1);
   const [pageSize, setPageSize] = useState<number>(15);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isFetchError, setIsFetchError] = useState<boolean>(false);
 
   const filteredCandidateList = useMemo(() => {
     const filteredList = candidateList.filter(
@@ -68,19 +70,33 @@ const CandidateList = () => {
     setPageSize(size ? parseInt(size) : 15);
   }, [params]);
 
-  useEffect(() => {
+  const loadCandidateList = () => {
     setIsLoading(true);
-    getCandidateList().then((data) => {
-      const totalCandidateList = [
-        ...data.content,
-        ...data.design,
-        ...data.marketing,
-        ...data.programming,
-      ];
+    setIsFetchError(false);
+    getCandidateList()
+      .then((data) => {
+        const totalCandidateList = [
+          ...data.content,
+          ...data.design,
+          ...data.marketing,
+          ...data.programming,
+        ];
 
-      setCandidateList(totalCandidateList);
-      setIsLoading(false);
-    });
+        setCandidateList(totalCandidateList);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsFetchError(true);
+        setIsLoading(false);
+      });
+  };
+
+  const handleReload = () => {
+    loadCandidateList();
+  };
+
+  useEffect(() => {
+    loadCandidateList();
   }, []);
 
   useEffect(() => {
@@ -104,6 +120,7 @@ const CandidateList = () => {
       <div className="mx-[32px]">
         <div className="flex gap-[8px]">
           <Input
+            className="text-center lg:text-left"
             value={searchValue}
             onChange={handleInputChange}
             placeholder="ค้นหา ชื่อ, นามสกุล, หมายเลขผู้สัมภาษณ์"
@@ -114,6 +131,14 @@ const CandidateList = () => {
             {isLoading ? (
               <div className="flex justify-center items-center h-full">
                 <Loader2 className="animate-spin" />
+              </div>
+            ) : isFetchError ? (
+              <div className="flex flex-col gap-[8px] justify-center items-center h-full">
+                <div className="text-red-500">เกิดข้อผิดพลาดในการดึงข้อมูล</div>
+                <Button onClick={handleReload} variant="outline" className="cursor-pointer">
+                  <RefreshCw className="mr-2" />
+                  ลองใหม่
+                </Button>
               </div>
             ) : (
               <>
