@@ -16,16 +16,22 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  margin-bottom: 16px;
 }
 
 .failed-header {
   font-size: 24px;
   font-weight: 600;
+ /* underline */
+ text-decoration: underline;
+ /* underline offset */
+ text-underline-offset: 4px;
   /* Gradient Text */
-  background: linear-gradient(to right, #ffffff, rgb(85, 85, 85));
+  /* background: linear-gradient(to right, #ffffff, rgb(85, 85, 85));
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 .name {
@@ -47,7 +53,7 @@
 }
 
 .badge-container {
-  margin: 8px 0;
+  margin: 16px 0;
 }
 
 .quote-text {
