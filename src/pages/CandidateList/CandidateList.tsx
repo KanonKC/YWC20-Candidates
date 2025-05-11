@@ -110,7 +110,7 @@ const CandidateList = () => {
           />
         </div>
         <div className="mt-[8px]">
-          <Card className="p-[16px]">
+          <Card className="p-[16px] max-h-[calc(100vh-180px)] overflow-y-auto">
             {isLoading ? (
               <div className="flex justify-center items-center h-full">
                 <Loader2 className="animate-spin" />
